@@ -11,7 +11,7 @@
 - 通知機能　（プッシュ通知）
 
 ## 使用技術
-- PHP 8.5
+- PHP 8.5（Laravel Sail）
 - Laravel 13
 - MySQL 8.4
 - Blade
@@ -29,18 +29,70 @@
 ### 必要要件
 - Git
 - Docker Desktop（または Docker Engine）
-- PHP 8.3以上
-- composer
+- WSL2（Windowsの場合）
 
 ### リポジトリをクローン
-- git clone https://github.com/makoto-oshida/meal-planner.git
-- cd meal-planner
+```bash
+git clone https://github.com/makoto-oshida/meal-planner.git # Linux側のディレクトリにクローンする
+cd meal-planner
+```
 
 ### 環境変数ファイルを作成
-- cp .env.example .env
+```bash
+cp .env.example .env
+```
 
-### Composerインストール
-- composer install
+### Docker上でComposer依存関係をインストール
+```bash
+docker run --rm \
+-u "$(id -u):$(id -g)" \
+-v "$(pwd):/var/www/html" \
+-w /var/www/html \
+laravelsail/php84-composer:latest \
+composer install
+```
 
 ### Dockerコンテナ起動
-- ./vendor/bin/sail up -d
+```bash
+./vendor/bin/sail up -d
+```
+
+### コンテナ起動後の設定
+```bash
+sail artisan key:generate
+./vendor/bin/sail artisan migrate
+./vendor/bin/sail npm install
+./vendor/bin/sail npm run dev # 別ターミナルで実行
+```
+
+### Sailエイリアスの設定（任意）
+
+使用しているシェルの設定ファイルに以下を追加します。
+
+#### Bash
+
+```bash
+echo "alias sail='sh \$([ -f sail ] && echo sail || echo vendor/bin/sail)'" >> ~/.bashrc
+source ~/.bashrc
+```
+
+#### Zsh
+```zsh
+echo "alias sail='sh \$([ -f sail ] && echo sail || echo vendor/bin/sail)'" >> ~/.zshrc
+source ~/.zshrc
+```
+
+### 設定後
+以下のようにsailだけでコマンド実行できます。
+```bash
+sail up -d
+sail artisan migrate
+sail npm install
+```
+
+
+### アプリにアクセス
+
+Sail起動後、ブラウザで以下にアクセスします。
+
+http://localhost
