@@ -1,3 +1,4 @@
+// < family-structure >
 const counters = document.querySelectorAll("[data-counter]");
 const familyTotal = document.getElementById("total");
 const adult = document.querySelector('[name="adult"]');
@@ -36,3 +37,12 @@ counters.forEach((counter) => {
 });
 // 初期値の合計
 updateTotal();
+
+// < allergy-select >
+const otherCheckbox = document.getElementById("other");
+const other_allergyInputText = document.getElementById("other_allergy");
+
+otherCheckbox.addEventListener("change", () => {
+    other_allergyInputText.hidden = !otherCheckbox.checked;
+    other_allergyInputText.disabled = !otherCheckbox.checked;
+});
