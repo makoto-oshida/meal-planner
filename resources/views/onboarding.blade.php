@@ -89,6 +89,7 @@
 
         <fieldset class="not-like-food">
             <legend>苦手な食べ物を記入してください<small> (任意) </small></legend>
+            <textarea name="not_like" id="notLike" cols="30" rows="10" placeholder="例:ピーマン、ナス"></textarea>
         </fieldset>
         <button type="submit">次へ</button>
     </form>
