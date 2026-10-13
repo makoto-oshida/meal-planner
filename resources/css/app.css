@@ -61,6 +61,51 @@ select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
 
+@layer components {
+    /* 共通 */
+    .form-btn {
+        @apply w-full border border-gray-300 rounded-lg p-3 mt-4 bg-orange-300;
+     }
+
+     /* オンボーディング画面 */
+     /* 大人と子供の行 */
+    .adult-row,
+    .child-row {
+        @apply flex items-center justify-between border-b border-gray-300 pb-4 mb-4;
+    }
+    /* カウンターボタン */
+    .counter-btn {
+        @apply flex h-10 w-10 items-center justify-center
+               rounded-full border border-orange-400
+               bg-white text-xl leading-none text-orange-400;
+    }
+    /* アレルギーの各項目 */
+    .allergies-item {
+        @apply rounded-lg border border-gray-300 bg-white pr-8 pl-1 py-2 cursor-pointer;
+    }
+    /* キーボードフォーカス */
+    .allergies-item:has(input:focus-visible) {
+    @apply ring-2 ring-orange-400;
+}
+    /* チェックマーク：最初は非表示 */
+    .check-icon {
+        @apply invisible text-xl font-bold 
+               text-orange-600;
+    }
+     /* チェックされた項目の背景 */
+    .allergies-item:has(input:checked) {
+        @apply bg-orange-100;
+    }
+
+    /* チェックされたら✓を表示 */
+    .allergies-item:has(input:checked) .check-icon {
+        @apply visible;
+    }
+
+    
+
+}
+
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
