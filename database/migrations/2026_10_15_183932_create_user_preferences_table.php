@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('user_preferences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->unique()->constrained()->cascadeOnDelete();
-             $table->unsignedInteger('adults');
-             $table->unsignedInteger('children');
-             $table->json('allergies')->nullable();
-             $table->string('not_like_foods')->nullable();
+            $table->unsignedInteger('adults');
+            $table->unsignedInteger('children');
+            $table->json('allergies')->nullable();
+            $table->string('not_like_foods')->nullable();
             $table->timestamps();
         });
     }
