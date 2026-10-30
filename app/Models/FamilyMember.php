@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserPreference extends Model
+class FamilyMember extends Model
 {
     protected $fillable = [
         'user_id',
-        'adults',
-        'children',
+        'name',
+        'age_group',
         'allergies',
+        'allergy_other',
         'not_like_foods',
+        'portion_size',
     ];
 
     protected function casts(): array
