@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite(['resources/css/app.css','resources/js/onboarding.js'])
-  <title>Onboarding</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite(['resources/css/app.css', 'resources/js/onboarding.js'])
+    <title>Onboarding</title>
 </head>
+
 <body>
-  @include('onboarding.welcome')
-  @include('onboarding.members')
-  @include('onboarding.dietary')
-  @include('onboarding.confirm')
+    <main class="mx-auto min-h-screen w-full max-w-md px-4">
+        {{-- ステップバー --}}
+        <div class="flex items-center justify-between mt-4">
+            @for ($step = 1; $step <= 4; $step++)
+                <div class="flex items-center justify-center h-8 w-8 rounded-full border">
+                    {{ $step }}
+                </div>
+
+                @if ($step < 4)
+                    <div class="h-1 w-16 bg-gray-300"></div>
+                @endif
+            @endfor
+        {{-- ステップタイトル --}}
+        </div>
+        <div class="flex justify-between mt-2 text-gray-500">
+            <div>ようこそ</div>
+            <div>家族メンバー</div>
+            <div>食事の設定</div>
+            <div>確認</div>
+        </div>
+
+        @include('onboarding.welcome')
+        @include('onboarding.members')
+        @include('onboarding.dietary')
+        @include('onboarding.confirm')
+    </main>
 </body>
+
 </html>
