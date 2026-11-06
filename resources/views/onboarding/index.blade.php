@@ -10,18 +10,21 @@
 
 <body>
     <main class="mx-auto min-h-screen w-full max-w-md px-4">
-        {{-- ステップバー --}}
-        <div class="flex items-center justify-between mt-4">
+        {{-- stepper --}}
+        <div class="flex items-center justify-between mt-4" data-stepper>
             @for ($step = 1; $step <= 4; $step++)
-                <div class="flex items-center justify-center h-8 w-8 rounded-full border">
+            {{-- 1～4までのstepの要素 --}}
+                <div class="flex items-center justify-center h-8 w-8 rounded-full border"
+                    data-step-indicator="{{ $step }}">
                     {{ $step }}
                 </div>
 
                 @if ($step < 4)
-                    <div class="h-1 w-16 bg-gray-300"></div>
+                {{-- １～４までの間のバーの要素 --}}
+                    <div class="h-1 w-16 bg-gray-300" data-step-connector="{{ $step }}"></div>
                 @endif
             @endfor
-        {{-- ステップタイトル --}}
+            {{-- ステップタイトル --}}
         </div>
         <div class="flex justify-between mt-2 text-gray-500">
             <div>ようこそ</div>

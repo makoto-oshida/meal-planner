@@ -1,6 +1,10 @@
+// 画面切り替えの要素
 const steps = document.querySelectorAll("[data-step]");
 const nextBtns = document.querySelectorAll("[data-next-btn]");
 const prevBtns = document.querySelectorAll("[data-prev-btn]");
+// stepperの要素
+const indicators = document.querySelectorAll("[data-step-indicator]");
+const connectors = document.querySelectorAll("[data-step-connector]");
 
 // 現在のview番号
 let currentStep = 1;
@@ -18,6 +22,30 @@ function showView() {
     });
 }
 
+// stepperの色付け
+function addColor() {
+    // 4つのうち１つを色付け
+    indicators.forEach((indicator) => {
+        const currentIndicador = Number(indicator.dataset.stepIndicator);
+        // 現在のviewに合わせて色を付ける
+        if (currentIndicador < currentStep) {
+            indicator.classList.add("bg-green-500", "text-white");
+        } else {
+            indicator.classList.remove("bg-green-500", "text-white");
+        }
+    });
+    // 3つのうち一つを色付け
+    connectors.forEach((connector) => {
+        const currentConnector = Number(connector.dataset.stepConnector);
+        // 現在のviewに合わせて色を付ける
+        if ( currentConnector < currentStep) {
+            connector.classList.add("bg-green-500", "text-white");
+        } else{
+            connector.classList.remove("bg-green-500", "text-white");
+        }
+    });
+}
+
 // 次へボタンclick
 nextBtns.forEach((nextBtn) => {
     nextBtn.addEventListener("click", () => {
@@ -27,6 +55,7 @@ nextBtns.forEach((nextBtn) => {
             currentStep++;
         }
         showView();
+        addColor();
     });
 });
 
@@ -39,6 +68,8 @@ prevBtns.forEach((prevBtn) => {
             currentStep--;
         }
         showView();
+        addColor();
     });
 });
 showView();
+addColor();
