@@ -28,15 +28,15 @@
         </div>
         <div class="flex justify-between mt-2 text-gray-500">
             <div>ようこそ</div>
-            <div>家族メンバー</div>
-            <div>食事の設定</div>
-            <div>確認</div>
+            <div>家族メンバー登録</div>
+            <div>内容の確認</div>
+            <div>完了</div>
         </div>
 
         @include('onboarding.welcome')
         @include('onboarding.members')
-        @include('onboarding.dietary')
         @include('onboarding.confirm')
+        @include('onboarding.compleat')
     </main>
 </body>
 
