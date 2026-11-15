@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('age_group');
+            $table->enum('age_group',['adult', 'child']);
             $table->json('allergies')->nullable();
             $table->text('allergy_other')->nullable();
             $table->text('not_like_foods')->nullable();
