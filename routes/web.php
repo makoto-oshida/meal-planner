@@ -12,7 +12,7 @@ Route::get('/onboarding/member-create', function () {
     return view('onboarding.member-create');
 })->name('onboarding.member-create');
 // オンボーディング：家族メンバー編集画面
-Route::get('/onboarding/member-edit', function() {
+Route::get('/onboarding/member-edit', function () {
     return view('onboarding.member-edit');
 })->name('onboarding.member-edit');
 
@@ -20,4 +20,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 });
 
-require __DIR__ . '/settings.php';
+require __DIR__.'/settings.php';
