@@ -6,8 +6,14 @@ const prevBtns = document.querySelectorAll("[data-prev-btn]");
 const indicators = document.querySelectorAll("[data-step-indicator]");
 const connectors = document.querySelectorAll("[data-step-connector]");
 
-// 現在のview番号
-let currentStep = 1;
+// member-createからindex.bladeのstep2に戻るための処理
+// ?step=2 のURLのパラメータを取得
+const params = new URLSearchParams(window.location.search);
+// step=2の値をNumberでcurrentStepに返す
+const step = Number(params.get('step'));
+
+// 現在のview番号(stepがなければ1を使用)
+let currentStep = step || 1;
 // 画面切り替え
 function showView() {
     steps.forEach((step) => {

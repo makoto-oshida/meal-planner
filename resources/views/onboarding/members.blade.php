@@ -41,6 +41,6 @@
             </div>
         </li>
     </ul>
-    <flux:button variant="primary" color="green" class="w-full mb-4 mt-4" type="button">+ 家族メンバー追加</flux:button>
+    <flux:button variant="primary" color="green" class="w-full mb-4 mt-4" type="button" href="{{ route('onboarding.member-create') }}">+ 家族メンバー追加</flux:button>
     <x-step-buttons />
 </section>
