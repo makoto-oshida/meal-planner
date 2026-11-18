@@ -10,7 +10,7 @@
                     <p class="text-gray-300 font-medium">大人</p>
                 </div>
                 <div class="ml-auto px-4 py-2">
-                    <flux:button variant="outline" class="!bg-gray-100">編集</flux:button>
+                    <flux:button variant="outline" class="!bg-gray-100" href="{{ route('onboarding.member-edit') }}">編集</flux:button>
                 </div>
             </div>
         </li>
@@ -23,7 +23,7 @@
                     <p class="text-gray-300 font-medium">大人</p>
                 </div>
                 <div class="ml-auto px-4 py-2">
-                    <flux:button variant="outline" class="!bg-gray-100">編集</flex:button>
+                    <flux:button variant="outline" class="!bg-gray-100" href="{{ route('onboarding.member-edit') }}">編集</flux:button>
                 </div>
             </div>
         </li>
@@ -36,7 +36,7 @@
                     <p class="text-gray-300 font-medium">子ども</p>
                 </div>
                 <div class="ml-auto px-4 py-2">
-                    <flux:button variant="outline" class="!bg-gray-100">編集</flex:button>
+                    <flux:button variant="outline" class="!bg-gray-100" href="{{ route('onboarding.member-edit') }}">編集</flux:button>
                 </div>
             </div>
         </li>
